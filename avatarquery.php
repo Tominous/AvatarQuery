@@ -185,7 +185,7 @@ $query_url = "https://api.minetools.eu/query/" . $ip . "/" . $query_port;
                     var version = data['version']['name'];
                     var favicon = data['favicon'];
 
-                    //console.log(self.name() + ":" + a);
+                    console.log(self.name() + ":" + a);
 
                     self.online(online);
                     self.max(max);
@@ -303,12 +303,12 @@ $query_url = "https://api.minetools.eu/query/" . $ip . "/" . $query_port;
     ko.virtualElements.allowedBindings.stopBinding = true;
 
     playermodel = new PlayerModel();
-    //ko.applyBindings(playermodel, document.getElementById("players"));
+    ko.applyBindings(playermodel, document.getElementById("players"));
 
     servermodel = new ServerModel();
     servermodel.addServers(<?php echo json_encode($servers); ?>);
     servermodel.addBungee(<?php echo json_encode($bungee); ?>);
-    //ko.applyBindings(servermodel, document.getElementById("servers"));
+    ko.applyBindings(servermodel, document.getElementById("servers"));
 
     var viewModel = {
         player: playermodel,
@@ -333,7 +333,7 @@ $query_url = "https://api.minetools.eu/query/" . $ip . "/" . $query_port;
                 playermodel.addNewPlayers(players, notify);
                 playermodel.removePlayers(players, notify);
             } else {
-                // console.log(query_url + ": " + data['status'])
+                 console.log(query_url + ": " + data['status'])
             }
         });
         firstRun = false
